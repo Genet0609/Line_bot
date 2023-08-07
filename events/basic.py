@@ -1,20 +1,20 @@
 from line_bot_api import *
 
 def about_us_event(event):
-    
+
     emoji = [
 
         {
             "index" : 0,
-            "productId": "5ac21c4e031a6752fb806d5b",
-            "emojiId" :"002"
+            "productId": "5ac2213e040ab15980c9b447",
+            "emojiId" :"085"
         },
+
         {
             "index" : 1,
             "productId": "5ac21c4e031a6752fb806d5b",
             "emojiId" :"039"
         },
-
         {
             "index" : 2,
             "productId": "5ac21c4e031a6752fb806d5b",
@@ -36,24 +36,29 @@ def about_us_event(event):
         {
             "index" : 5,
             "productId": "5ac21c4e031a6752fb806d5b",
-            "emojiId" :"002"
+            "emojiId" :"161"
         },
 
         {
             "index" : 6,
             "productId": "5ac21c4e031a6752fb806d5b",
-            "emojiId" :"031"
+            "emojiId" :"014"
         },
 
         {
             "index" : 7,
             "productId": "5ac21c4e031a6752fb806d5b",
-            "emojiId" :"014"
-        }
+            "emojiId" :"161"
+        },
+        {
+            "index" : 8,
+            "productId": "5ac2213e040ab15980c9b447",
+            "emojiId" :"085"
+        },
 
     ]
 
-    text_message = TextSendMessage(text="""$$$$$$$$ 
+    text_message = TextSendMessage(text="""$$$$$$$$$ 
 哈囉！你好哇！恭喜你已經成為了莉飄兒大人的部下！""",emojis=emoji)
     
     sticker_message = StickerSendMessage(
