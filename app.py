@@ -22,7 +22,7 @@ def handler_message(event):
     message_text = str(event.message.text).lower()
 
     if message_text == "@使用說明":
-        about_us_event(event)
+        #about_us_event(event)
         Usage(event)
     
 if __name__ == "__main__":
