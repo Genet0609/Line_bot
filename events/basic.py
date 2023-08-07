@@ -69,3 +69,22 @@ def about_us_event(event):
         event.reply_token,
         [text_message,sticker_message]
     )
+
+def push_msg(event,msg):
+    try:
+        user_id = event.source.user_id
+        line_bot_api.push_message(user_id,TextSendMessage(text=msg))
+    except:
+        room_id = event.source.room_id
+        line_bot_api.push_message(room_id,TextSendMessage(text=msg))
+
+def Usage(event):
+    push_msg(event,"🍒莉飄兒大人的施捨🍒\
+            \n\
+            \n☆真拿你沒辦法，就幫你查查吧☆\
+            \n\
+            \n☆ 油價通知 (●'◡'●) 輸入要查詢的油價 ☆\
+            \n☆ 匯率通知 ╰(*°▽°*)╯ 輸入要查詢的匯率 ☆\
+            \n☆ 匯率兌換 (●'◡'●) 換匯USD/TWD ☆\
+            \n☆ 股價查詢 ╰(*°▽°*)╯ 輸入要查詢的股票 ☆\
+            ")
