@@ -36,15 +36,16 @@ def handler_message(event):
             TextSendMessage(text=content)
         )
     # 股價
+
     if message_text == "@股價查詢":
-        line_bot_api.push_message(uid,TextSendMessage("要輸入 # + 股票代號 喔！"))
+        line_bot_api.push_message(uid,
+                TextSendMessage("要輸入 # + 股票代號 喔！"))
 
 
     
 @handler.add(FollowEvent)
 def handler_follow(event):
-    welcome_message = TextSendMessage(text="""哈囉！你好哇！
-恭喜你已經成為了莉飄兒大人的部下！""")
+    welcome_message = """哈囉！你好哇！恭喜你已經成為了莉飄兒大人的部下！"""
     
     line_bot_api.reply_message(
             event.reply_token,
@@ -53,7 +54,11 @@ def handler_follow(event):
 
 @handler.add(UnfollowEvent)
 def handle_unfollow(event):
-    print(event)
+    block_message = """哇哈哈！莉飄兒大人果然還是最好的，對吧？"""
+    
+    line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=block_message))
 
 if __name__ == '__main__':
     app.run()
