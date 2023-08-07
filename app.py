@@ -77,7 +77,7 @@ def handler_message(event):
 
     ]
 
-    text_message = TextSendMessage(text="""$$$$$$$ 
+    text_message = TextSendMessage(text="""$$$$$$$$ 
 哈囉！恭喜你已經成為了莉飄兒大人我的部下！""",emojis=emoji)
     
     sticker_message = StickerSendMessage(
