@@ -21,34 +21,35 @@ def callback():
 def handler_message(event):
     message_text = str(event.message.text).lower()
 
-    #if message_text == "@使用說明":
-        #about_us_event(event)
-        #Usage(event)
-    
-    if event.message.text == "@使用說明":
-        buttons_template = TextSendMessage(
-            alt_text = "小幫手 template",
-            template = ButtonsTemplate(
-                title="選擇服務",
-                text = "請選擇",
-                thumbnail_image_url="https://i.imgur.com/8gsw57N.jpg",
+    if message_text == '@使用說明':
+        about_us_event(event)
+        Usage(event)
+
+    if event.message.text == "@小幫手":
+        buttons_template = TemplateSendMessage(
+            alt_text='小幫手 template',
+            template=ButtonsTemplate(
+                title='選擇服務',
+                text='請選擇',
+                #放imgur的網址
+                thumbnail_image_url='https://i.imgur.com/8gsw57N.jpg',
                 actions=[
-                    MessageTemplateAction(
-                        label="油價查詢",
-                        text="油價查詢"
-                    ),
-                    MessageTemplateAction(
-                        label="匯率查詢",
-                        text="匯率查詢"
-                    ),
-                    MessageTemplateAction(
-                        label="股價查詢",
-                        text="股價查詢"
-                    ),
+                MessageTemplateAction(
+                    label='油價查詢',
+                    text='油價查詢'
+                ),
+                MessageTemplateAction(
+                    label='匯率查詢',
+                    text='匯率查詢'
+                ),
+                MessageTemplateAction(
+                    label='股票查詢',
+                    text='股票查詢'
+                )
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token,buttons_template)
-    
-if __name__ == "__main__":
+        line_bot_api.reply_message(event.reply_token, buttons_template)
+
+if __name__ == '__main__':
     app.run()
