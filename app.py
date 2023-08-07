@@ -20,21 +20,19 @@ def callback():
 
 @handler.add(MessageEvent,message=TextMessage)
 def handler_message(event):
+
     message_text = str(event.message.text).lower()
 
-    
-
-# 選單
-
+    # 選單
     if message_text == '@使用說明':
         #about_us_event(event)
         Usage(event)
 
-    if event.message_text == '@油價':
+    if message_text == '@油價':
         content = oil_price()
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text = content)
+            TextSendMessage(text=content)
         )
     
 @handler.add(FollowEvent)
