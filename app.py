@@ -55,9 +55,8 @@ def handler_follow(event):
 @handler.add(UnfollowEvent)
 def handle_unfollow(event):
     block_message = """哇哈哈！莉飄兒大人果然還是最好的，對吧？"""
-    line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=block_message))
+    line_bot_api.push_message(event.source.user_id, TextSendMessage(text=block_message))
+
 
 if __name__ == '__main__':
     app.run()
