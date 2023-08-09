@@ -43,6 +43,13 @@ def handler_message(event):
             TextSendMessage(text=content)
         )
 
+    if message_text == '@匯率':
+        content = show_Button()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=content)
+        )
+
     ##### 股價 #####
 
     if message_text == "@股票":
