@@ -77,15 +77,15 @@ def about_us_event(event):
                 actions=[
                 MessageTemplateAction(
                     label='油價查詢',
-                    text='油價查詢'
+                    text='@油價'
                 ),
                 MessageTemplateAction(
                     label='匯率查詢',
-                    text='匯率查詢'
+                    text='@匯率'
                 ),
                 MessageTemplateAction(
                     label='股票查詢',
-                    text='股票查詢'
+                    text='@股票'
                 )
                 ]
             )

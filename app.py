@@ -43,16 +43,16 @@ def handler_message(event):
 
     ##### 股價 #####
 
-    if message_text == "@股價查詢":
+    if message_text == "@股價":
         line_bot_api.push_message(uid,
                 TextSendMessage("要輸入 # + 股票代號 喔！"))
         
     #查詢股價功能
 
     ##股價查詢
-    if re.match("想知道股價[0-9]:", msg):
-        stockNumber = msg[2:6]
-        btn_msg = stock_reply_other(stockNumber)
+    if re.match("想知道股價:", msg):
+        
+        btn_msg = stock_reply_other(msg)
         line_bot_api.push_message(uid, btn_msg)
         return 0
     
@@ -61,13 +61,13 @@ def handler_message(event):
         content =''
 
         stock_rt = twstock.realtime.get(text)
-        my_datetime = datetime.datetime.fromtimestamp(stock_rt['timestamp']+8*60*60)
-        my_time = my_datetime.strftime('%H:%M:%S')
+        the_datetime = datetime.datetime.fromtimestamp(stock_rt['timestamp']+8*60*60)
+        the_time = the_datetime.strftime('%H:%M:%S')
 
         content +='%s (%s) %s\n' % (
             stock_rt['info']['name'],
             stock_rt['info']['code'],
-            my_time)
+            the_time)
         
         content += '現價: %s / 開盤: %s\n'%(
             stock_rt['realtime']['latest_trade_price'],
