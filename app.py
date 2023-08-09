@@ -2,6 +2,7 @@ from line_bot_api import *
 from events.basic import *
 from events.oil import*
 from events.msg_template import*
+from events.EXRate import*
 from model.mongodb import*
 import datetime , re , twstock
 
@@ -102,16 +103,22 @@ def handler_message(event):
             TextSendMessage(text=content)
         )
 
+
     # 匯率區 #
 
     if re.match("幣別種類", emsg):
         message = show_Button()
         line_bot_api.reply_message(event.reply_token, message)
+    
+    if re.match("換匯[A-Z]{3}/[A-Z{3}]",msg):
+        line_bot_api.push_message(uid,TextSendMessage("幫你換錢錢！"))
+        Content = getExchangeRate(msg)
+        line_bot_api.push_message(uid,TextSendMessage(content))
 
     
     if stockNumber is None:
         stockNumber = "未設定"
-
+        
     content = write_my_stock(uid, user_name, stockNumber, "未設定", '未設定')
     line_bot_api.push_message(uid, TextSendMessage(content))
     return 0
