@@ -80,6 +80,7 @@ def handler_message(event):
         content = write_my_stock(uid, user_name, stockNumber, "未設定", "未設定")
         line_bot_api.push_message(uid, TextSendMessage(content))
         return 0
+    
 
     if (emsg.startswith('#')):
         text = emsg[1:]
