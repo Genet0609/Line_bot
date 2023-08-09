@@ -3,8 +3,8 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 # Authentication Database認證資料庫
-stockDB='mydb'
-dbname = 'test-good1'
+stockDB='thedb'
+dbname = 'howard-good31'
 
 def constructor_stock(): 
     client = MongoClient("mongodb://dolimit0115:xyz19930609@ac-xmnplkn-shard-00-00.en5twjf.mongodb.net:27017,ac-xmnplkn-shard-00-01.en5twjf.mongodb.net:27017,ac-xmnplkn-shard-00-02.en5twjf.mongodb.net:27017/?ssl=true&replicaSet=atlas-g9xd4h-shard-0&authSource=admin&retryWrites=true&w=majority")
