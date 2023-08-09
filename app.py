@@ -112,13 +112,13 @@ def handler_message(event):
     
     if re.match("換匯[A-Z]{3}/[A-Z{3}]",msg):
         line_bot_api.push_message(uid,TextSendMessage("幫你換錢錢！"))
-        Content = getExchangeRate(msg)
+        content = getExchangeRate(msg)
         line_bot_api.push_message(uid,TextSendMessage(content))
 
     
     if stockNumber is None:
         stockNumber = "未設定"
-        
+
     content = write_my_stock(uid, user_name, stockNumber, "未設定", '未設定')
     line_bot_api.push_message(uid, TextSendMessage(content))
     return 0
