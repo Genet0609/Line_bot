@@ -2,6 +2,7 @@ from line_bot_api import *
 from events.basic import *
 from events.oil import*
 from events.msg_template import*
+from model.mongodb import*
 import datetime , re , twstock
 
 app = Flask(__name__)
@@ -27,6 +28,7 @@ def handler_message(event):
     message_text = str(event.message.text).lower()
     msg = str(event.message.text).upper().strip()
     emsg = event.message.text
+    user_name = profile.display_name
 
     ##### 選單 #####
 
@@ -45,17 +47,26 @@ def handler_message(event):
 
     if message_text == "@股價":
         line_bot_api.push_message(uid,
-                TextSendMessage("要輸入 # + 股票代號 喔！"))
+                TextSendMessage("@股票 之後，要輸入 # + 股票代號 喔！"))
         
     #查詢股價功能
 
     ##股價查詢
-    if re.match("想知道股價:", msg):
-        
+    if re.match("想知道股價[0-9]:", msg):
+        msg = msg[5:]
         btn_msg = stock_reply_other(msg)
         line_bot_api.push_message(uid, btn_msg)
         return 0
     
+    if re.match("關注[0-9]{4}[<>][0-9]:", msg):
+        stockNumber = msg[2:6]
+        content = write_stock(uid,user_name,stockNumber,msg[6:7],msg[7:])
+        line_bot_api.push_message(uid,TextSendMessage(content))
+    else:
+        content = write_stock(uid,user_name,stockNumber,"未設定","未設定")
+        line_bot_api.push_message(uid,TextSendMessage(content))
+        return 0
+
     if (emsg.startswith('#')):
         text = emsg[1:]
         content =''
