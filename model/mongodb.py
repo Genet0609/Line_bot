@@ -6,7 +6,7 @@ dbname=  'howard-good31'
 
 def constructor_stock():
     #密碼藥用mongodb的密碼
-    clinet = MongoClient('mongodb://dolimit0609:9dQmXiodEqdaxTQJ@ac-xmnplkn-shard-00-00.en5twjf.mongodb.net:27017,ac-xmnplkn-shard-00-01.en5twjf.mongodb.net:27017,ac-xmnplkn-shard-00-02.en5twjf.mongodb.net:27017/?ssl=true&replicaSet=atlas-g9xd4h-shard-0&authSource=admin&retryWrites=true&w=majority')
+    clinet = MongoClient('mongodb://dolimit:do19930609@ac-xmnplkn-shard-00-00.en5twjf.mongodb.net:27017,ac-xmnplkn-shard-00-01.en5twjf.mongodb.net:27017,ac-xmnplkn-shard-00-02.en5twjf.mongodb.net:27017/?ssl=true&replicaSet=atlas-g9xd4h-shard-0&authSource=admin&retryWrites=true&w=majority')
     db = clinet [stockDB]
     return db
 #-----------------------------更新暫存的股票名稱---------------
