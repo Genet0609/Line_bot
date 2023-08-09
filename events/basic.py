@@ -66,11 +66,12 @@ def about_us_event(event):
         sticker_id="52002748"
     )
 
+
     buttons_template = TemplateSendMessage(
-            alt_text='小幫手 template',
+            alt_text='🍒莉飄兒大人很厲害的🍒',
             template=ButtonsTemplate(
-                title='選擇服務',
-                text='請選擇',
+                title='要我幫你什麼呢？',
+                text='快選吧！',
                 #放imgur的網址
                 thumbnail_image_url='https://i.imgur.com/8gsw57N.jpg',
                 actions=[
