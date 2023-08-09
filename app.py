@@ -60,10 +60,8 @@ def handler_message(event):
     
     if re.match("關注[0-9]{4}[<>][0-9]:", msg):
         stockNumber = msg[2:6]
-        content = write_stock(uid,user_name,stockNumber,msg[6:7],msg[7:])
-        line_bot_api.push_message(uid,TextSendMessage(content))
-    else:
-        content = write_stock(uid,user_name,stockNumber,"未設定","未設定")
+        line_bot_api.push_message(uid,TextSendMessage("加入股票代號"+stockNumber))
+        content = write_my_stock(uid,user_name,stockNumber,msg[6:7],msg[7:])
         line_bot_api.push_message(uid,TextSendMessage(content))
         return 0
 
