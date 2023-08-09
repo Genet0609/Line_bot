@@ -49,7 +49,6 @@ def show_Button():
                         "url": "https://i.imgur.com/VCy4BYX.png",
                         "size": "full",
                         "aspectMode": "cover",
-                        "animated": false
                     }
                 ]
             },
