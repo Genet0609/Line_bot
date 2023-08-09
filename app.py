@@ -45,7 +45,7 @@ def handler_message(event):
 
     ##### 股價 #####
 
-    if message_text == "@股價":
+    if message_text == "@股票":
         line_bot_api.push_message(uid,
                 TextSendMessage("@股票 之後，要輸入 # + 股票代號 喔！"))
         
