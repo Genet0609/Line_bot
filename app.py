@@ -68,6 +68,13 @@ def handler_message(event):
         line_bot_api.push_message(uid, TextSendMessage(content))
         return 0
     
+    if re.match("股票清單",msg):
+        line_bot_api.push_message(uid,TextSendMessage("在幫你查詢股票囉！"))
+        content = show_stock_setting(user_name,uid)
+        line_bot_api.push_message(uid,TextSendMessage(content))
+        return 0
+
+    
     if (emsg.startswith('#')):
         text = emsg[1:]
         content =''
@@ -106,9 +113,9 @@ def handler_message(event):
     # 匯率區 #
 
     if message_text == '@匯率':
-        msg=msg[4:]
-        content = show_Button()
-        line_bot_api.reply_message(event.reply_token,message)
+        message = show_Button()
+        line_bot_api.push_message(uid,
+                TextSendMessage("可以輸入 換匯JPY/CNY/100 試試看喔！"))
 
     if re.match("幣別種類", emsg):
         message = show_Button()
